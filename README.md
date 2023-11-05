@@ -1,6 +1,6 @@
 # Manga Translate web
 
-Website support for translate manga
+Website support Database for app Football League Manager
 
 # Start project
 
