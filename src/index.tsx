@@ -1,4 +1,5 @@
 import 'styles/index.less';
+import './lib/firebase';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';

@@ -5,10 +5,10 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('pages/Home'));
-const AboutUsPage = lazy(() => import('pages/AboutUs'));
+const TeamsPage = lazy(() => import('pages/Teams'));
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <Suspense fallback={<Waiting />}>
         <Layout>
           <Sider />
@@ -16,7 +16,7 @@ function App() {
             <Layout.Content>
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/aboutUs" element={<AboutUsPage />} />
+                <Route path="/teams" element={<TeamsPage />} />
               </Routes>
             </Layout.Content>
           </Layout>

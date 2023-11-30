@@ -20,7 +20,7 @@ const Sider = () => {
     const items: any = [];
     [
       ['', 'Home', AiFillAppstore],
-      ['aboutUs', 'Contact', FiUsers],
+      ['teams', 'Teams', FiUsers],
     ].forEach(([feature, name, Icon]) => {
       const item: any = {
         key: feature as string,
@@ -40,7 +40,7 @@ const Sider = () => {
           {
             key: 'app',
             label: 'Football League',
-            icon: <Avatar size="small" src="/logo192.png" />,
+            icon: <Avatar size="small" src="logo192.png" />,
           },
         ]}
       />

@@ -1,5 +1,5 @@
-import type { HomeState } from 'features/home/types';
+import type { UserState } from 'features/user/types';
 
 export type RootState = {
-  homeStore: HomeState;
+  userStore: UserState;
 };

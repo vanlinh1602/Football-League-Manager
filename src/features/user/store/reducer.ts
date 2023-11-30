@@ -1,11 +1,11 @@
 import { createSlice } from 'utils/@reduxjs/toolkit';
 
-import type { HomeState } from '../types';
+import type { UserState } from '../types';
 
-export const initialState: HomeState = {};
+export const initialState: UserState = { handling: false };
 
 const slice = createSlice({
-  name: 'homeStore',
+  name: 'userStore',
   initialState,
   reducers: {},
 });
