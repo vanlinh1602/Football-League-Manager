@@ -1,15 +1,26 @@
 import { EditOutlined, TeamOutlined } from '@ant-design/icons';
 import { Button, Col, Popover, Row, Table, TableColumnType } from 'antd';
+import { useTeamSlide } from 'features/teams/store';
 import { selectTeamData } from 'features/teams/store/selectors';
 import type { Team } from 'features/teams/types';
-import { useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { TeamEditor } from './TeamEditor';
 
 const ListTeams = () => {
+  const dispatch = useDispatch();
+  const { actions } = useTeamSlide();
+
   const teamsData = useSelector(selectTeamData);
-  const [edit, setEdit] = useState<Team>();
+  const [edit, setEdit] = useState<Partial<Team>>();
+
+  useEffect(() => {
+    if (!teamsData) {
+      dispatch(actions.getTeams());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actions, dispatch]);
 
   const columns: TableColumnType<Team>[] = useMemo(
     () => [
@@ -21,6 +32,16 @@ const ListTeams = () => {
       {
         title: 'Tên đội bóng',
         dataIndex: 'name',
+        render: (_any, record) => (
+          <Row align="middle" gutter={5}>
+            <Col>
+              <img style={{ borderRadius: 48 }} width={40} src={record.logo} alt="" />
+            </Col>
+            <Col>
+              <b>{record.name}</b>
+            </Col>
+          </Row>
+        ),
       },
       {
         title: 'Người sở hữu',
@@ -28,13 +49,17 @@ const ListTeams = () => {
       },
       {
         render: (_any, record) => (
-          <Row style={{ width: '100%' }} justify="space-between">
-            <Popover content="Danh sách thành viên">
-              <TeamOutlined />
-            </Popover>
-            <Popover content="Sửa thông tin đội bóng">
-              <EditOutlined onClick={() => setEdit(record)} />
-            </Popover>
+          <Row gutter={5}>
+            <Col>
+              <Popover content="Danh sách thành viên">
+                <TeamOutlined />
+              </Popover>
+            </Col>
+            <Col>
+              <Popover content="Sửa thông tin đội bóng">
+                <EditOutlined onClick={() => setEdit(record)} />
+              </Popover>
+            </Col>
           </Row>
         ),
       },
@@ -43,10 +68,12 @@ const ListTeams = () => {
   );
   return (
     <div>
-      {edit ? <TeamEditor info={edit} /> : null}
+      {edit ? <TeamEditor info={edit} onClose={() => setEdit(undefined)} /> : null}
       <Row justify="end" gutter={[5, 5]}>
         <Col>
-          <Button type="primary">Thêm đội bóng</Button>
+          <Button style={{ margin: '10px 10px' }} type="primary" onClick={() => setEdit({})}>
+            Thêm đội bóng
+          </Button>
         </Col>
       </Row>
       <Table columns={columns} pagination={false} dataSource={Object.values(teamsData ?? {})} />

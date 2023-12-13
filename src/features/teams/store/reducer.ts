@@ -16,7 +16,10 @@ const slice = createSlice({
         ...action.payload,
       };
     },
-    getTeams(state, _action: PayloadAction<{ year: number }>) {
+    getTeams(state) {
+      state.handling = true;
+    },
+    updateTeam(state, _action: PayloadAction<Team>) {
       state.handling = true;
     },
   },
