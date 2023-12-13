@@ -1,7 +1,6 @@
 {
   "name": "football-league-manager",
   "version": "0.1.0",
-  "homepage": "https://vanlinh1602.github.io/Football-League-Manager/",
   "private": true,
   "dependencies": {
     "@ant-design/colors": "^7.0.0",

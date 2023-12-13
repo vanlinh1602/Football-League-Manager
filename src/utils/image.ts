@@ -4,7 +4,7 @@ export const getBase64 = (file: RcFile): Promise<string> =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => resolve((reader.result as string).toString().split(',')[1]);
+    reader.onload = () => resolve((reader.result as string).toString());
     reader.onerror = (error) => reject(error);
   });
 

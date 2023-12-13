@@ -46,7 +46,7 @@ const Sider = () => {
       />
       <Menu
         className={S.menus}
-        onClick={({ key }) => {
+        onClick={({ key }: any) => {
           navigate(`/${key}`);
         }}
         selectedKeys={[activeMenu]}

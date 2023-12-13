@@ -1,4 +1,5 @@
 import { Layout } from 'antd';
+import { Header } from 'components';
 import Waiting from 'components/Waiting';
 import Sider from 'features/Sider';
 import React, { lazy, Suspense } from 'react';
@@ -13,6 +14,7 @@ function App() {
         <Layout>
           <Sider />
           <Layout>
+            <Header />
             <Layout.Content>
               <Routes>
                 <Route path="/" element={<HomePage />} />
