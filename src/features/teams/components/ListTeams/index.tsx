@@ -1,7 +1,8 @@
 import { EditOutlined, TeamOutlined } from '@ant-design/icons';
 import { Button, Col, Popover, Row, Table, TableColumnType } from 'antd';
+import { Waiting } from 'components';
 import { useTeamSlide } from 'features/teams/store';
-import { selectTeamData } from 'features/teams/store/selectors';
+import { selectTeamData, selectTeamHandling } from 'features/teams/store/selectors';
 import type { Team } from 'features/teams/types';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +14,7 @@ const ListTeams = () => {
   const { actions } = useTeamSlide();
 
   const teamsData = useSelector(selectTeamData);
+  const handling = useSelector(selectTeamHandling);
   const [edit, setEdit] = useState<Partial<Team>>();
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const ListTeams = () => {
       },
       {
         render: (_any, record) => (
-          <Row gutter={5}>
+          <Row gutter={20}>
             <Col>
               <Popover content="Danh sách thành viên">
                 <TeamOutlined />
@@ -68,6 +70,7 @@ const ListTeams = () => {
   );
   return (
     <div>
+      {handling ? <Waiting /> : null}
       {edit ? <TeamEditor info={edit} onClose={() => setEdit(undefined)} /> : null}
       <Row justify="end" gutter={[5, 5]}>
         <Col>
