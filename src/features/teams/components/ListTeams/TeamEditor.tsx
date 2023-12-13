@@ -1,6 +1,6 @@
 import { Button, Col, Form, Input, Modal, Row, Upload } from 'antd';
 import type { RcFile } from 'antd/lib/upload';
-import { useTeamSlide } from 'features/teams/store';
+import { useTeamsSlide } from 'features/teams/store';
 import type { Team } from 'features/teams/types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ type Props = {
 
 export const TeamEditor = ({ info, onClose }: Props) => {
   const dispatch = useDispatch();
-  const { actions } = useTeamSlide();
+  const { actions } = useTeamsSlide();
   const [form] = Form.useForm<Team>();
   const [image, setImage] = useState<string>(info.logo || '');
   const handlerUpload = async (file: RcFile) => {
@@ -60,6 +60,7 @@ export const TeamEditor = ({ info, onClose }: Props) => {
           <Upload
             name="avatar"
             listType="picture-card"
+            accept="image/*"
             showUploadList={false}
             beforeUpload={handlerUpload}
           >

@@ -12,8 +12,12 @@ function* getTeams() {
   try {
     const result: WithApiResult<Team[]> = yield backendService.post('api/getTeams', {});
     if (result.kind === 'ok') {
-      const teams = _.keyBy(result.data, 'id');
-      yield put(teamActions.fetchTeam(teams));
+      if (result.data.length) {
+        const teams = _.keyBy(result.data, 'id');
+        yield put(teamActions.fetchTeam(teams));
+      } else {
+        yield put(teamActions.fetchTeam({}));
+      }
     } else {
       yield put(teamActions.fetchTeam({}));
       notification.error({

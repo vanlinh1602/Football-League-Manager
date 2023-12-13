@@ -6,7 +6,7 @@ import type { Team, TeamStore } from '../types';
 export const initialState: TeamStore = { handling: false };
 
 const slice = createSlice({
-  name: 'teamStore',
+  name: 'teamsStore',
   initialState,
   reducers: {
     fetchTeam(state, action: PayloadAction<CustomObject<Team>>) {

@@ -3,7 +3,7 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { actions, key, reducer } from './reducer';
 import saga from './saga';
 
-export const useTeamsSlide = () => {
+export const usePlayersSlide = () => {
   useInjectReducer({ key, reducer });
   useInjectSaga({
     key,

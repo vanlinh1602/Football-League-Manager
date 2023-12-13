@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('pages/Home'));
 const TeamsPage = lazy(() => import('pages/Teams'));
+const PlayersPage = lazy(() => import('pages/Players'));
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/teams" element={<TeamsPage />} />
+                <Route path="/players/:team" element={<PlayersPage />} />
+                <Route path="/players" element={<PlayersPage />} />
               </Routes>
             </Layout.Content>
           </Layout>

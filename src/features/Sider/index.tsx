@@ -2,6 +2,7 @@ import { Avatar, Layout, Menu } from 'antd';
 import _ from 'lodash';
 import { useMemo } from 'react';
 import { AiFillAppstore } from 'react-icons/ai';
+import { FaPersonRunning } from 'react-icons/fa6';
 import { FiUsers } from 'react-icons/fi';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ const Sider = () => {
     [
       ['', 'Home', AiFillAppstore],
       ['teams', 'Teams', FiUsers],
+      ['players', 'Players', FaPersonRunning],
     ].forEach(([feature, name, Icon]) => {
       const item: any = {
         key: feature as string,

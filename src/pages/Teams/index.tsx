@@ -3,7 +3,7 @@ import { ListTeams } from 'features/teams/components';
 
 const Teams = () => (
   // const dispatch = useDispatch();
-  // const { actions } = useTeamSlide();
+  // const { actions } = useTeamsSlide();
   // const [form] = Form.useForm<{ year: number }>();
 
   // const handleQuery = useCallback(async () => {

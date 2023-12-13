@@ -1,17 +1,19 @@
 import { EditOutlined, TeamOutlined } from '@ant-design/icons';
 import { Button, Col, Popover, Row, Table, TableColumnType } from 'antd';
 import { Waiting } from 'components';
-import { useTeamSlide } from 'features/teams/store';
+import { useTeamsSlide } from 'features/teams/store';
 import { selectTeamData, selectTeamHandling } from 'features/teams/store/selectors';
 import type { Team } from 'features/teams/types';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { TeamEditor } from './TeamEditor';
 
 const ListTeams = () => {
   const dispatch = useDispatch();
-  const { actions } = useTeamSlide();
+  const { actions } = useTeamsSlide();
+  const navigate = useNavigate();
 
   const teamsData = useSelector(selectTeamData);
   const handling = useSelector(selectTeamHandling);
@@ -54,7 +56,7 @@ const ListTeams = () => {
           <Row gutter={20}>
             <Col>
               <Popover content="Danh sách thành viên">
-                <TeamOutlined />
+                <TeamOutlined onClick={() => navigate(`/players/${record.id}`)} />
               </Popover>
             </Col>
             <Col>
@@ -66,7 +68,7 @@ const ListTeams = () => {
         ),
       },
     ],
-    []
+    [navigate]
   );
   return (
     <div>
