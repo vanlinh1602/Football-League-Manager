@@ -1,10 +1,10 @@
-import { Layout } from 'antd';
-import { Waiting } from 'components';
+import { Button, Col, Layout, Row, Typography } from 'antd';
+import { Header, Waiting } from 'components';
 import { LeagueCard, LeagueEditor } from 'features/leagues/compoments';
 import { useLeagueSlide } from 'features/leagues/store';
 import { selectLeagueHandling, selectLeagues } from 'features/leagues/store/selectors';
 import type { League } from 'features/leagues/types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Leagues = () => {
@@ -13,23 +13,49 @@ const Leagues = () => {
 
   const handling = useSelector(selectLeagueHandling);
   const leagueData = useSelector(selectLeagues);
-  const [edit, setEdit] = useState<League>();
-
-  useEffect(() => {
-    if (!leagueData) {
-      dispatch(actions.getLeagues());
-    }
-  }, [dispatch, actions, leagueData]);
+  const [edit, setEdit] = useState<Partial<League>>();
 
   return (
-    <Layout>
-      {handling ? <Waiting /> : null}
-      {edit ? <LeagueEditor info={edit} onClose={() => setEdit(undefined)} /> : null}
-
-      {Object.values(leagueData ?? {}).map((league) => (
-        <LeagueCard info={league} handleEdit={() => setEdit(league)} />
-      ))}
-    </Layout>
+    <div>
+      <Header
+        content={
+          <Row justify="space-between">
+            <Col>
+              <Typography.Title level={4}>Football Leagues</Typography.Title>
+            </Col>
+            <Col>
+              <Button
+                type="primary"
+                style={{ marginRight: 10 }}
+                onClick={() => {
+                  dispatch(actions.getLeagues());
+                }}
+              >
+                Tra cứu
+              </Button>
+              <Button
+                type="text"
+                style={{ backgroundColor: '#82c91e', color: 'white' }}
+                onClick={() => setEdit({})}
+              >
+                Thêm giải đấu
+              </Button>
+            </Col>
+          </Row>
+        }
+      />
+      <Layout style={{ overflowY: 'scroll', height: window.innerHeight - 100 }}>
+        {handling ? <Waiting /> : null}
+        {edit ? <LeagueEditor info={edit} onClose={() => setEdit(undefined)} /> : null}
+        <Row>
+          {Object.values(leagueData ?? {}).map((league) => (
+            <Col span={6}>
+              <LeagueCard info={league} handleEdit={() => setEdit(league)} />
+            </Col>
+          ))}
+        </Row>
+      </Layout>
+    </div>
   );
 };
 

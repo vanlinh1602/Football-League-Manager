@@ -219,10 +219,10 @@ const LeagueEditor = ({ info, onClose }: Props) => {
             <Form.Item name="name" label="Tên giải đấu" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
-            <Form.Item name="start" label="Ngày bắt đầu">
+            <Form.Item name="start" label="Ngày bắt đầu" rules={[{ required: true }]}>
               <DatePicker style={{ width: '100%' }} format="D/M/Y" />
             </Form.Item>
-            <Form.Item name="start" label="Ngày kết thúc">
+            <Form.Item name="end" label="Ngày kết thúc" rules={[{ required: true }]}>
               <DatePicker style={{ width: '100%' }} format="D/M/Y" />
             </Form.Item>
           </Col>

@@ -1,6 +1,5 @@
 import { Layout } from 'antd';
 import AuthorizedRoute from 'AuthorizedRoute';
-import { Header } from 'components';
 import Waiting from 'components/Waiting';
 import Sider from 'features/Sider';
 import { useTeamSlide } from 'features/teams/store';
@@ -26,7 +25,6 @@ function App() {
         <Layout>
           <Sider />
           <Layout>
-            <Header />
             <Layout.Content>
               <Routes>
                 <Route path="/" element={<AuthorizedRoute />}>

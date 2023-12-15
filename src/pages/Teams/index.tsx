@@ -1,4 +1,5 @@
-import { Layout } from 'antd';
+import { Col, Layout, Typography } from 'antd';
+import { Header } from 'components';
 import { ListTeams } from 'features/teams/components';
 
 const Teams = () => (
@@ -11,22 +12,17 @@ const Teams = () => (
 
   //   dispatch(actions.getTeams(data));
   // }, [dispatch, actions, form]);
-  <Layout style={{ background: 'white', height: '100%' }}>
-    {/* <Form form={form} initialValues={{ year: moment().year() }}>
-        <Row gutter={10}>
-          <Col span={4}>
-            <Form.Item name="year" label="Chọn năm">
-              <Select options={getYearOptions()} />
-            </Form.Item>
-          </Col>
-          <Col>
-            <Button type="primary" onClick={handleQuery}>
-              Tra cứu
-            </Button>
-          </Col>
-        </Row>
-      </Form> */}
-    <ListTeams />
-  </Layout>
+  <div>
+    <Header
+      content={
+        <Col>
+          <Typography.Title level={4}>Danh sách đội bóng</Typography.Title>
+        </Col>
+      }
+    />
+    <Layout style={{ background: 'white', overflowY: 'scroll', height: window.innerHeight - 100 }}>
+      <ListTeams />
+    </Layout>
+  </div>
 );
 export default Teams;
