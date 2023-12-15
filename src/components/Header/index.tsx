@@ -10,6 +10,10 @@ const Header = () => {
     switch (path) {
       case 'teams':
         return 'Danh sách đội bóng';
+      case 'players':
+        return 'Danh sách cầu thủ';
+      case 'leagues':
+        return 'Danh sách giải đấu';
       default:
         return 'Trang chủ';
     }

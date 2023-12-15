@@ -2,9 +2,9 @@ import { Button, Col, Layout, notification, Row, Select } from 'antd';
 import { Waiting } from 'components';
 import { PlayerEditor } from 'features/players/components';
 import ListPlayers from 'features/players/components/ListPlayers';
-import { usePlayersSlide } from 'features/players/store';
+import { usePlayerSlide } from 'features/players/store';
 import { selectLayers, selectPlayerHandling } from 'features/players/store/selectors';
-import { useTeamsSlide } from 'features/teams/store';
+import { useTeamSlide } from 'features/teams/store';
 import { selectTeamData, selectTeamHandling } from 'features/teams/store/selectors';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,8 +14,8 @@ const Players = () => {
   const { team: teamId } = useParams();
 
   const dispatch = useDispatch();
-  const { actions: playersAction } = usePlayersSlide();
-  const { actions: teamsAction } = useTeamsSlide();
+  const { actions: playersAction } = usePlayerSlide();
+  const { actions: teamsAction } = useTeamSlide();
   const allTeams = useSelector(selectTeamData);
 
   const playersHandling = useSelector(selectPlayerHandling);

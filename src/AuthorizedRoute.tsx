@@ -1,10 +1,6 @@
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-type Props = {
-  children: JSX.Element;
-};
-
-const AuthorizedRoute = ({ children }: Props) => {
+const AuthorizedRoute = () => {
   const location = useLocation();
 
   const user = true;
@@ -13,7 +9,7 @@ const AuthorizedRoute = ({ children }: Props) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  return children;
+  return <Outlet />;
 };
 
 export default AuthorizedRoute;

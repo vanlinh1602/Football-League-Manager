@@ -1,6 +1,6 @@
 import { Button, Col, DatePicker, Form, Input, Modal, Row, Select, Upload } from 'antd';
 import type { RcFile } from 'antd/lib/upload';
-import { usePlayersSlide } from 'features/players/store';
+import { usePlayerSlide } from 'features/players/store';
 import type { Player } from 'features/players/types';
 import { playerRoles } from 'lib/options';
 import moment from 'moment';
@@ -16,7 +16,7 @@ type Props = {
 
 const PlayerEditor = ({ info, onClose }: Props) => {
   const dispatch = useDispatch();
-  const { actions } = usePlayersSlide();
+  const { actions } = usePlayerSlide();
   const [form] = Form.useForm<Player>();
   const [image, setImage] = useState<string>(info.avatar || '');
   const handlerUpload = async (file: RcFile) => {

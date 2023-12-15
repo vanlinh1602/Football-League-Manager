@@ -3,7 +3,7 @@ import type { RootState } from 'types';
 
 import { initialState } from './reducer';
 
-const selectDomain = (state: RootState) => state?.playersStore || initialState;
+const selectDomain = (state: RootState) => state?.playerStore || initialState;
 const selectPath = (state: RootState, path: string) => path;
 
 export const selectPlayerHandling = createSelector([selectDomain], (state) => state.handling);

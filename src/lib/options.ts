@@ -11,3 +11,21 @@ export const playerRoles = {
   LM: 'Tiền vệ chạy cánh',
   FW: 'Tiền đạo',
 };
+
+export const leagues = [
+  {
+    title: 'AFC Cup',
+  },
+  {
+    title: 'AFC Champions',
+  },
+  {
+    title: 'Europa league',
+  },
+  {
+    title: 'CAF',
+  },
+  {
+    title: 'UEFA',
+  },
+];

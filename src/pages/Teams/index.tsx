@@ -3,7 +3,7 @@ import { ListTeams } from 'features/teams/components';
 
 const Teams = () => (
   // const dispatch = useDispatch();
-  // const { actions } = useTeamsSlide();
+  // const { actions } = useTeamSlide();
   // const [form] = Form.useForm<{ year: number }>();
 
   // const handleQuery = useCallback(async () => {
@@ -11,7 +11,6 @@ const Teams = () => (
 
   //   dispatch(actions.getTeams(data));
   // }, [dispatch, actions, form]);
-
   <Layout style={{ background: 'white', height: '100%' }}>
     {/* <Form form={form} initialValues={{ year: moment().year() }}>
         <Row gutter={10}>

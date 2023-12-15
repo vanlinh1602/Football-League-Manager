@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { AiFillAppstore } from 'react-icons/ai';
 import { FaPersonRunning } from 'react-icons/fa6';
 import { FiUsers } from 'react-icons/fi';
+import { GiChampions } from 'react-icons/gi';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import S from './styles.module.less';
@@ -21,6 +22,7 @@ const Sider = () => {
     const items: any = [];
     [
       ['', 'Home', AiFillAppstore],
+      ['leagues', 'Leagues', GiChampions],
       ['teams', 'Teams', FiUsers],
       ['players', 'Players', FaPersonRunning],
     ].forEach(([feature, name, Icon]) => {

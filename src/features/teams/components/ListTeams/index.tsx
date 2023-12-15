@@ -1,7 +1,7 @@
 import { EditOutlined, TeamOutlined } from '@ant-design/icons';
 import { Button, Col, Popover, Row, Table, TableColumnType } from 'antd';
 import { Waiting } from 'components';
-import { useTeamsSlide } from 'features/teams/store';
+import { useTeamSlide } from 'features/teams/store';
 import { selectTeamData, selectTeamHandling } from 'features/teams/store/selectors';
 import type { Team } from 'features/teams/types';
 import { useEffect, useMemo, useState } from 'react';
@@ -12,7 +12,7 @@ import { TeamEditor } from './TeamEditor';
 
 const ListTeams = () => {
   const dispatch = useDispatch();
-  const { actions } = useTeamsSlide();
+  const { actions } = useTeamSlide();
   const navigate = useNavigate();
 
   const teamsData = useSelector(selectTeamData);

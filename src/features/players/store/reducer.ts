@@ -6,7 +6,7 @@ import type { Player, PlayersStore } from '../types';
 export const initialState: PlayersStore = { handling: false };
 
 const slice = createSlice({
-  name: 'playersStore',
+  name: 'playerStore',
   initialState,
   reducers: {
     fetchPlayers(

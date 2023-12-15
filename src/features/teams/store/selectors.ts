@@ -3,7 +3,7 @@ import type { RootState } from 'types';
 
 import { initialState } from './reducer';
 
-const selectDomain = (state: RootState) => state?.teamsStore || initialState;
+const selectDomain = (state: RootState) => state?.teamStore || initialState;
 
 export const selectTeamHandling = createSelector([selectDomain], (state) => state.handling);
 

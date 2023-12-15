@@ -1,25 +1,25 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 
-import type { Team, TeamStore } from '../types';
+import type { League, LeagueStore } from '../types';
 
-export const initialState: TeamStore = { handling: false };
+export const initialState: LeagueStore = { handling: false };
 
 const slice = createSlice({
-  name: 'teamStore',
+  name: 'leagueStore',
   initialState,
   reducers: {
-    fetchTeam(state, action: PayloadAction<CustomObject<Team>>) {
+    fetchLeagues(state, action: PayloadAction<CustomObject<League>>) {
       state.handling = false;
       state.data = {
         ...state.data,
         ...action.payload,
       };
     },
-    getTeams(state) {
+    getLeagues(state) {
       state.handling = true;
     },
-    updateTeam(state, _action: PayloadAction<Team>) {
+    updateLeague(state, _action: PayloadAction<League>) {
       state.handling = true;
     },
   },
