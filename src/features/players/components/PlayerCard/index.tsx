@@ -4,7 +4,6 @@ import type { Player } from 'features/players/types';
 import { linearGradientColor, playerRoles } from 'lib/options';
 import _ from 'lodash';
 import moment from 'moment';
-import { parseFullName } from 'utils/commons';
 
 type Props = {
   info: Player;
@@ -14,7 +13,6 @@ type Props = {
 const PlayerCard = ({ info, handleEdit }: Props) => {
   const linearColor = linearGradientColor[_.random(0, linearGradientColor.length - 1)];
   const { name, avatar, birthday, role } = info;
-  const { firstName, lastName } = parseFullName(name);
 
   return (
     <Card
@@ -51,9 +49,10 @@ const PlayerCard = ({ info, handleEdit }: Props) => {
           flexDirection: 'column',
         }}
       >
-        <Col>
-          <Typography style={{ fontWeight: 'bold', fontSize: 24 }}>{firstName}</Typography>
-          <Typography style={{ fontWeight: 'bold', fontSize: 24 }}>{lastName}</Typography>
+        <Col style={{ marginBottom: 5 }}>
+          <Typography style={{ fontWeight: 'bold', fontSize: 24, color: 'white' }}>
+            {name}
+          </Typography>
         </Col>
         <Row justify="space-between" style={{ width: '100%', textAlign: 'center' }}>
           <Col>
