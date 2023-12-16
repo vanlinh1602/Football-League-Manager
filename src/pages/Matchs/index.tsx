@@ -1,5 +1,6 @@
 import { Button, Col, Layout, notification, Row, Select, Typography } from 'antd';
 import { Header, Waiting } from 'components';
+import { useLeagueSlide } from 'features/leagues/store';
 import { selectLeagues } from 'features/leagues/store/selectors';
 import { MatchCard, MatchEditor } from 'features/matchs/compoments';
 import { useMatchSlide } from 'features/matchs/store';
@@ -15,11 +16,13 @@ const Matchs = () => {
 
   const dispatch = useDispatch();
   const { actions } = useMatchSlide();
+  const { actions: leagueAction } = useLeagueSlide();
 
   const [league, setLeague] = useState(leagueID || '');
   const [editMatch, setEditMatch] = useState<Partial<Match>>();
 
   const matchHanding = useSelector(selectMatchHandling);
+  const leagueHandling = useSelector(selectMatchHandling);
   const matchs = useSelector((state: RootState) => selectLeagueMatches(state, league));
   const leagues = useSelector(selectLeagues);
 
@@ -27,10 +30,15 @@ const Matchs = () => {
     if (league && !matchs) {
       dispatch(actions.getMatchs(league));
     }
+    if (!leagues) {
+      dispatch(leagueAction.getLeagues());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
+      {matchHanding || leagueHandling ? <Waiting /> : null}
+      {editMatch ? <MatchEditor info={editMatch} onClose={() => setEditMatch(undefined)} /> : null}
       <Header
         content={
           <Row align="middle" justify="space-between">
@@ -84,10 +92,6 @@ const Matchs = () => {
         }
       />
       <Layout style={{ overflowY: 'scroll', height: window.innerHeight - 100 }}>
-        {matchHanding ? <Waiting /> : null}
-        {editMatch ? (
-          <MatchEditor info={editMatch} onClose={() => setEditMatch(undefined)} />
-        ) : null}
         <Row>
           {matchs.map((match) => (
             <Col span={6}>

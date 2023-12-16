@@ -32,6 +32,10 @@ const Players = () => {
   }, []);
   return (
     <div>
+      {teamsHandling || playersHandling ? <Waiting /> : null}
+      {editPlayer ? (
+        <PlayerEditor info={editPlayer} onClose={() => setEditPlayer(undefined)} />
+      ) : null}
       <Header
         content={
           <Row align="middle" justify="space-between">
@@ -85,10 +89,6 @@ const Players = () => {
         }
       />
       <Layout style={{ overflowY: 'scroll', height: window.innerHeight - 100 }}>
-        {teamsHandling || playersHandling ? <Waiting /> : null}
-        {editPlayer ? (
-          <PlayerEditor info={editPlayer} onClose={() => setEditPlayer(undefined)} />
-        ) : null}
         <Row>
           {Object.values(players ?? {}).map((player) => (
             <Col span={6}>

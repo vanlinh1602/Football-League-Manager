@@ -17,6 +17,8 @@ const Leagues = () => {
 
   return (
     <div>
+      {handling ? <Waiting /> : null}
+      {edit ? <LeagueEditor info={edit} onClose={() => setEdit(undefined)} /> : null}
       <Header
         content={
           <Row justify="space-between">
@@ -45,8 +47,6 @@ const Leagues = () => {
         }
       />
       <Layout style={{ overflowY: 'scroll', height: window.innerHeight - 100 }}>
-        {handling ? <Waiting /> : null}
-        {edit ? <LeagueEditor info={edit} onClose={() => setEdit(undefined)} /> : null}
         <Row>
           {Object.values(leagueData ?? {}).map((league) => (
             <Col span={6}>
