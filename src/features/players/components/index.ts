@@ -1,2 +1,2 @@
-export { default as ListPlayers } from './ListPlayers';
+export { default as PlayerCard } from './PlayerCard';
 export { default as PlayerEditor } from './PlayerEditor';

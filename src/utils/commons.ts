@@ -19,3 +19,11 @@ export const generateID = (
   if (ids.includes(id)) return generateID(ids, size, options);
   return id;
 };
+
+export const parseFullName = (fullName: string) => {
+  const words = _.split(fullName, ' ');
+  return {
+    firstName: _.join(_.dropRight(words), ' '),
+    lastName: _.last(words),
+  };
+};

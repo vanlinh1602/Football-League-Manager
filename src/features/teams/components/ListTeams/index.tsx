@@ -39,7 +39,12 @@ const ListTeams = () => {
         render: (_any, record) => (
           <Row align="middle" gutter={5}>
             <Col>
-              <img style={{ borderRadius: 48 }} width={40} src={record.logo} alt="" />
+              <img
+                style={{ borderRadius: 48, objectFit: 'cover' }}
+                width={40}
+                src={record.logo}
+                alt=""
+              />
             </Col>
             <Col>
               <b>{record.name}</b>

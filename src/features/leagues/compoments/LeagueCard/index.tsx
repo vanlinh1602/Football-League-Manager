@@ -15,7 +15,7 @@ const LeagueCard = ({ info, handleEdit }: Props) => {
     <Card
       style={{ width: 300, margin: '20px', borderRadius: '20px', overflow: 'hidden' }}
       bodyStyle={{ borderRadius: 12 }}
-      cover={<img alt="" src={info.image} style={{ height: 200 }} />}
+      cover={<img alt="" src={info.image} style={{ height: 200, objectFit: 'cover' }} />}
       actions={[
         <Popover content="Xem các trận đấu">
           <EyeOutlined key="view" onClick={() => navigate('/')} />
