@@ -1,6 +1,6 @@
 import { Button, Col, DatePicker, Form, Input, Modal, Row, Select } from 'antd';
-import { useMatchSlide } from 'features/matchs/store';
-import type { Match } from 'features/matchs/types';
+import { useMatchSlide } from 'features/matches/store';
+import type { Match } from 'features/matches/types';
 import { selectTeamData } from 'features/teams/store/selectors';
 import moment from 'moment';
 import { useMemo } from 'react';

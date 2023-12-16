@@ -1,11 +1,11 @@
 import { Button, Col, Layout, notification, Row, Select, Typography } from 'antd';
 import { Header, Waiting } from 'components';
 import { useLeagueSlide } from 'features/leagues/store';
-import { selectLeagues } from 'features/leagues/store/selectors';
-import { MatchCard, MatchEditor } from 'features/matchs/compoments';
-import { useMatchSlide } from 'features/matchs/store';
-import { selectLeagueMatches, selectMatchHandling } from 'features/matchs/store/selectors';
-import type { Match } from 'features/matchs/types';
+import { selectLeagueHandling, selectLeagues } from 'features/leagues/store/selectors';
+import { MatchCard, MatchEditor } from 'features/matches/compoments';
+import { useMatchSlide } from 'features/matches/store';
+import { selectLeagueMatches, selectMatchHandling } from 'features/matches/store/selectors';
+import type { Match } from 'features/matches/types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -22,7 +22,7 @@ const Matchs = () => {
   const [editMatch, setEditMatch] = useState<Partial<Match>>();
 
   const matchHanding = useSelector(selectMatchHandling);
-  const leagueHandling = useSelector(selectMatchHandling);
+  const leagueHandling = useSelector(selectLeagueHandling);
   const matchs = useSelector((state: RootState) => selectLeagueMatches(state, league));
   const leagues = useSelector(selectLeagues);
 

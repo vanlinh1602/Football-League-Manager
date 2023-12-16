@@ -1,6 +1,6 @@
 import { EditOutlined, EyeOutlined } from '@ant-design/icons';
 import { Card, Col, Popover, Row, Typography } from 'antd';
-import type { Match } from 'features/matchs/types';
+import type { Match } from 'features/matches/types';
 import { selectTeamData } from 'features/teams/store/selectors';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
@@ -20,7 +20,10 @@ const MatchCard = ({ info, handleEdit }: Props) => {
       bodyStyle={{ borderRadius: 12 }}
       actions={[
         <Popover content="Xem trận đấu">
-          <EyeOutlined key="view" onClick={() => navigate(`/match/${info.id}/events`)} />
+          <EyeOutlined
+            key="view"
+            onClick={() => navigate(`/matches/${info.league}/${info.id}/events`)}
+          />
         </Popover>,
         <Popover content="Chỉnh sửa thông tin">
           <EditOutlined key="edit" onClick={handleEdit} />,

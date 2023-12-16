@@ -24,7 +24,7 @@ const Sider = () => {
     [
       ['', 'Home', AiFillAppstore],
       ['leagues', 'Leagues', GiChampions],
-      ['matchs', 'Matches', PiSoccerBallFill],
+      ['matches', 'Matches', PiSoccerBallFill],
       ['teams', 'Teams', FiUsers],
       ['players', 'Players', FaPersonRunning],
     ].forEach(([feature, name, Icon]) => {
