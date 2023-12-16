@@ -53,8 +53,8 @@ const ListTeams = () => {
         ),
       },
       {
-        title: 'Người sở hữu',
-        dataIndex: 'owner',
+        title: 'Huấn luyện viên',
+        dataIndex: 'coach',
       },
       {
         render: (_any, record) => (

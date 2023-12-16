@@ -1,9 +1,11 @@
-import { Button, Col, Form, Input, Modal, Row, Upload } from 'antd';
+import { Button, Col, Form, Input, Modal, Row, Select, Upload } from 'antd';
 import type { RcFile } from 'antd/lib/upload';
+import { selectPlayersOfTeams } from 'features/players/store/selectors';
 import { useTeamSlide } from 'features/teams/store';
 import type { Team } from 'features/teams/types';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootState } from 'types';
 import { generateID } from 'utils/commons';
 import { getBase64 } from 'utils/image';
 
@@ -16,6 +18,9 @@ export const TeamEditor = ({ info, onClose }: Props) => {
   const dispatch = useDispatch();
   const { actions } = useTeamSlide();
   const [form] = Form.useForm<Team>();
+
+  const teamMembers = useSelector((state: RootState) => selectPlayersOfTeams(state, info.id ?? ''));
+
   const [image, setImage] = useState<string>(info.logo || '');
   const handlerUpload = async (file: RcFile) => {
     const base64 = await getBase64(file);
@@ -76,8 +81,16 @@ export const TeamEditor = ({ info, onClose }: Props) => {
             <Form.Item name="name" label="Tên đội bóng" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
-            <Form.Item name="owner" label="Người sỡ hữu" rules={[{ required: true }]}>
+            <Form.Item name="coach" label="Huấn luyện viên" rules={[{ required: true }]}>
               <Input />
+            </Form.Item>
+            <Form.Item name="captain" label="Đội trưởng">
+              <Select
+                options={Object.values(teamMembers ?? {}).map(({ name, id }) => ({
+                  value: id,
+                  label: name,
+                }))}
+              />
             </Form.Item>
           </Form>
         </Col>
