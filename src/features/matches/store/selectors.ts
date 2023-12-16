@@ -17,7 +17,12 @@ export const selectLeagueMatches = createSelector([selectMatchs, selectPath], (m
   return result;
 });
 
-export const selectMatchEvents = createSelector(
+export const selectMatch = createSelector(
   [selectMatchs, selectPath],
+  (matches, id) => matches?.[id]
+);
+
+export const selectMatchEvents = createSelector(
+  [selectEvents, selectPath],
   (events, match) => events?.[match]
 );

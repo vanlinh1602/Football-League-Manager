@@ -23,3 +23,12 @@ export const playerRoles: CustomObject<string> = {
   LM: 'Tiền vệ chạy cánh',
   FW: 'Tiền đạo',
 };
+
+export const events: CustomObject<string> = {
+  goal: 'Ghi bàn',
+  offside: 'Việt vị',
+  cornerKick: 'Phạt góc',
+  foul: 'Phạm lỗi',
+  redCard: 'Thẻ đỏ',
+  yellowCard: 'Thẻ vàng',
+};

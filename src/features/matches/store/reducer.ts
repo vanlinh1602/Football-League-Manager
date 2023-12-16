@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 
-import type { Match, MatchStore } from '../types';
+import type { Event, Match, MatchStore } from '../types';
 
 export const initialState: MatchStore = { handling: false };
 
@@ -18,10 +18,29 @@ const slice = createSlice({
         };
       }
     },
+    fetchEvents(state, action: PayloadAction<{ match: string; data: CustomObject<Event> }>) {
+      state.handling = false;
+      if (action.payload) {
+        const { match, data } = action.payload;
+        state.events = {
+          ...state.events,
+          [match]: {
+            ...state.events?.[match],
+            ...data,
+          },
+        };
+      }
+    },
     getMatchs(state, _action: PayloadAction<string>) {
       state.handling = true;
     },
+    getEvents(state, _action: PayloadAction<string>) {
+      state.handling = true;
+    },
     updateMatch(state, _action: PayloadAction<Match>) {
+      state.handling = true;
+    },
+    updateEvent(state, _action: PayloadAction<Event>) {
       state.handling = true;
     },
   },

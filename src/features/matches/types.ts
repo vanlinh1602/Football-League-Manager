@@ -27,6 +27,7 @@ export type Event = {
   id: string;
   match: string;
   name: string;
+  minute: number;
   detail: {
     team: string;
     player?: string;
