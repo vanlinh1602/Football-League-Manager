@@ -11,6 +11,7 @@ const HomePage = lazy(() => import('pages/Home'));
 const TeamsPage = lazy(() => import('pages/Teams'));
 const LeaguesPage = lazy(() => import('pages/Leagues'));
 const PlayersPage = lazy(() => import('pages/Players'));
+const MatchsPage = lazy(() => import('pages/Matchs'));
 function App() {
   const dispatch = useDispatch();
   const { actions } = useTeamSlide();
@@ -39,6 +40,10 @@ function App() {
                 <Route path="/players" element={<AuthorizedRoute />}>
                   <Route path=":team" element={<PlayersPage />} />
                   <Route path="" element={<PlayersPage />} />
+                </Route>
+                <Route path="/matchs" element={<AuthorizedRoute />}>
+                  <Route path=":league" element={<MatchsPage />} />
+                  <Route path="" element={<MatchsPage />} />
                 </Route>
               </Routes>
             </Layout.Content>

@@ -5,6 +5,7 @@ import { AiFillAppstore } from 'react-icons/ai';
 import { FaPersonRunning } from 'react-icons/fa6';
 import { FiUsers } from 'react-icons/fi';
 import { GiChampions } from 'react-icons/gi';
+import { PiSoccerBallFill } from 'react-icons/pi';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import S from './styles.module.less';
@@ -23,6 +24,7 @@ const Sider = () => {
     [
       ['', 'Home', AiFillAppstore],
       ['leagues', 'Leagues', GiChampions],
+      ['matchs', 'Matchs', PiSoccerBallFill],
       ['teams', 'Teams', FiUsers],
       ['players', 'Players', FaPersonRunning],
     ].forEach(([feature, name, Icon]) => {

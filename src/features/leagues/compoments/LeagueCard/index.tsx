@@ -18,7 +18,7 @@ const LeagueCard = ({ info, handleEdit }: Props) => {
       cover={<img alt="" src={info.image} style={{ height: 200, objectFit: 'cover' }} />}
       actions={[
         <Popover content="Xem các trận đấu">
-          <EyeOutlined key="view" onClick={() => navigate('/')} />
+          <EyeOutlined key="view" onClick={() => navigate(`/matchs/${info.id}`)} />
         </Popover>,
         <Popover content="Chỉnh sửa thông tin">
           <EditOutlined key="edit" onClick={handleEdit} />,
