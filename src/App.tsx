@@ -42,7 +42,7 @@ function App() {
                   <Route path=":team" element={<PlayersPage />} />
                   <Route path="" element={<PlayersPage />} />
                 </Route>
-                <Route path="/matchs" element={<AuthorizedRoute />}>
+                <Route path="/matches" element={<AuthorizedRoute />}>
                   <Route path=":league" element={<MatchesPage />} />
                   <Route path=":league/:match/events" element={<EventsPage />} />
                   <Route path="" element={<MatchesPage />} />
