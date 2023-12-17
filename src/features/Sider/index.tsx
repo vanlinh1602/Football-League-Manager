@@ -42,6 +42,9 @@ const Sider = () => {
     <Layout.Sider className={S.container} collapsible breakpoint="xl" collapsedWidth={60}>
       <Menu
         selectable={false}
+        onClick={() => {
+          navigate('/');
+        }}
         items={[
           {
             key: 'app',
