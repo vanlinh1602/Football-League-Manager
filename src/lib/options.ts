@@ -1,15 +1,15 @@
 export const FONTS = ['Mynerve', 'Bangers', 'Fruktur', 'Gluten', 'Roboto', 'SedgwickAveDisplay'];
 
 export const linearGradientColor = [
-  ['#E54D24 ', '#DDB249'],
+  ['#E54D24', '#DDB249'],
   ['#ED4264', '#FFEDBC'],
-  ['#6D53DC ', '#DB8282'],
-  ['#539566 ', '#72A5C2'],
-  ['#8D60BE ', '#F2D49E'],
-  ['#A446A4 ', '#83A5BE'],
-  ['#6D53DC ', '#DC5356'],
-  ['#D9B967 ', '#8EC3A7'],
-  ['#F08686 ', '#9CC495'],
+  ['#6D53DC', '#DB8282'],
+  ['#539566', '#72A5C2'],
+  ['#8D60BE', '#F2D49E'],
+  ['#A446A4', '#83A5BE'],
+  ['#6D53DC', '#DC5356'],
+  ['#D9B967', '#8EC3A7'],
+  ['#F08686', '#9CC495'],
 ];
 
 export const playerRoles: CustomObject<string> = {
@@ -26,9 +26,9 @@ export const playerRoles: CustomObject<string> = {
 
 export const events: CustomObject<string> = {
   goal: 'Ghi bàn',
-  offside: 'Việt vị',
+  offSide: 'Việt vị',
   cornerKick: 'Phạt góc',
-  foul: 'Phạm lỗi',
+  errors: 'Phạm lỗi',
   redCard: 'Thẻ đỏ',
   yellowCard: 'Thẻ vàng',
 };
