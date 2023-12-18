@@ -25,7 +25,8 @@ export const playerRoles: CustomObject<string> = {
 };
 
 export const events: CustomObject<string> = {
-  goal: 'Ghi bàn',
+  shots: 'Số lần sút',
+  goals: 'Ghi bàn',
   offSide: 'Việt vị',
   cornerKick: 'Phạt góc',
   errors: 'Phạm lỗi',
