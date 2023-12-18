@@ -17,15 +17,14 @@ export const playerRoles: CustomObject<string> = {
   DF: 'Hậu vệ',
   CB: 'Trung vệ',
   FB: 'Hậu vệ biên',
-  MF: 'Tiền vệ',
   DM: 'Tiền vệ phòng ngự',
   CM: 'Tiền vệ trung tâm',
-  LM: 'Tiền vệ chạy cánh',
   FW: 'Tiền đạo',
+  winger: 'Tiền vệ/Tiền đạo cánh',
 };
 
 export const events: CustomObject<string> = {
-  shots: 'Số lần sút',
+  shots: 'Sút',
   goals: 'Ghi bàn',
   offSide: 'Việt vị',
   cornerKick: 'Phạt góc',
