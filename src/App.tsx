@@ -22,7 +22,9 @@ function App() {
   }, [dispatch, actions]);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter
+      basename={process.env.REACT_APP_STAGE === 'development' ? '' : '/Football-League-Manager'}
+    >
       <Suspense fallback={<Waiting />}>
         <Layout>
           <Sider />

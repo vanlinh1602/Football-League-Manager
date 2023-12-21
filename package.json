@@ -1,5 +1,6 @@
 {
   "name": "football-league-manager",
+  "homepage": "https://vanlinh1602.github.io/Football-League-Manager/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,7 +32,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "craco start",
+    "dev": "SET REACT_APP_STAGE=development&&craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
