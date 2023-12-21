@@ -100,7 +100,7 @@ function* updateEvent(action: PayloadAction<Event>) {
       yield put(
         matchAction.fetchEvents({ match: eventData.match, data: { [eventData.id]: eventData } })
       );
-      if (eventData.name === 'goal') {
+      if (eventData.name === 'goals') {
         const match: Match = yield select((state) => selectMatch(state, eventData.match));
         const dataUpdate: Match = _.cloneDeep(match);
         if (eventData.detail.team === match.teamA) {
