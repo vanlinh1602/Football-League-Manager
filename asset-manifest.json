@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/Football-League-Manager/static/css/main.ca8e8fdc.css",
-    "main.js": "/Football-League-Manager/static/js/main.c667b412.js",
+    "main.js": "/Football-League-Manager/static/js/main.59eb2bd5.js",
     "static/js/947.ee4182d1.chunk.js": "/Football-League-Manager/static/js/947.ee4182d1.chunk.js",
-    "static/js/388.49e21d56.chunk.js": "/Football-League-Manager/static/js/388.49e21d56.chunk.js",
+    "static/js/388.e8df87af.chunk.js": "/Football-League-Manager/static/js/388.e8df87af.chunk.js",
     "static/js/441.767b544c.chunk.js": "/Football-League-Manager/static/js/441.767b544c.chunk.js",
     "static/js/728.733f7005.chunk.js": "/Football-League-Manager/static/js/728.733f7005.chunk.js",
     "static/js/910.dd9b60b4.chunk.js": "/Football-League-Manager/static/js/910.dd9b60b4.chunk.js",
@@ -16,9 +16,9 @@
     "static/js/105.17911bff.chunk.js": "/Football-League-Manager/static/js/105.17911bff.chunk.js",
     "index.html": "/Football-League-Manager/index.html",
     "main.ca8e8fdc.css.map": "/Football-League-Manager/static/css/main.ca8e8fdc.css.map",
-    "main.c667b412.js.map": "/Football-League-Manager/static/js/main.c667b412.js.map",
+    "main.59eb2bd5.js.map": "/Football-League-Manager/static/js/main.59eb2bd5.js.map",
     "947.ee4182d1.chunk.js.map": "/Football-League-Manager/static/js/947.ee4182d1.chunk.js.map",
-    "388.49e21d56.chunk.js.map": "/Football-League-Manager/static/js/388.49e21d56.chunk.js.map",
+    "388.e8df87af.chunk.js.map": "/Football-League-Manager/static/js/388.e8df87af.chunk.js.map",
     "441.767b544c.chunk.js.map": "/Football-League-Manager/static/js/441.767b544c.chunk.js.map",
     "728.733f7005.chunk.js.map": "/Football-League-Manager/static/js/728.733f7005.chunk.js.map",
     "910.dd9b60b4.chunk.js.map": "/Football-League-Manager/static/js/910.dd9b60b4.chunk.js.map",
@@ -32,6 +32,6 @@
   },
   "entrypoints": [
     "static/css/main.ca8e8fdc.css",
-    "static/js/main.c667b412.js"
+    "static/js/main.59eb2bd5.js"
   ]
 }
