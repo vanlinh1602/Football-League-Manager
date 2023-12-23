@@ -22,9 +22,14 @@ export const TeamEditor = ({ info, onClose }: Props) => {
   const teamMembers = useSelector((state: RootState) => selectPlayersOfTeams(state, info.id ?? ''));
 
   const [image, setImage] = useState<string>(info.logo || '');
-  const handlerUpload = async (file: RcFile) => {
+  const [background, setBackground] = useState<string>(info.background || '');
+  const handlerUpload = async (file: RcFile, type: string) => {
     const base64 = await getBase64(file);
-    setImage(base64);
+    if (type === 'logo') {
+      setImage(base64);
+    } else {
+      setBackground(base64);
+    }
   };
 
   const handleSave = async () => {
@@ -38,6 +43,7 @@ export const TeamEditor = ({ info, onClose }: Props) => {
         ...info,
         ...formData,
         logo: image!,
+        background,
       };
 
       if (!dataUpdate.id) {
@@ -60,14 +66,34 @@ export const TeamEditor = ({ info, onClose }: Props) => {
         </Button>,
       ]}
     >
-      <Row>
+      <Row gutter={[5, 10]}>
+        <Col span={24}>
+          <Upload.Dragger
+            name="file"
+            height={200}
+            accept="image/*"
+            listType="picture"
+            showUploadList={false}
+            beforeUpload={(file) => handlerUpload(file, 'background')}
+          >
+            {background ? (
+              <img
+                src={background}
+                alt="avatar"
+                style={{ width: '100%', height: 170, objectFit: 'cover' }}
+              />
+            ) : (
+              <div>Thêm Background</div>
+            )}
+          </Upload.Dragger>
+        </Col>
         <Col span={6}>
           <Upload
             name="avatar"
             listType="picture-card"
             accept="image/*"
             showUploadList={false}
-            beforeUpload={handlerUpload}
+            beforeUpload={(file) => handlerUpload(file, 'logo')}
           >
             {image ? (
               <img src={image} alt="avatar" style={{ width: '100%' }} />
