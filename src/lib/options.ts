@@ -13,14 +13,13 @@ export const linearGradientColor = [
 ];
 
 export const playerRoles: CustomObject<string> = {
-  GK: 'Thủ môn',
-  DF: 'Hậu vệ',
-  CB: 'Trung vệ',
-  FB: 'Hậu vệ biên',
-  DM: 'Tiền vệ phòng ngự',
-  CM: 'Tiền vệ trung tâm',
-  FW: 'Tiền đạo',
-  winger: 'Tiền vệ/Tiền đạo cánh',
+  GK: 'Goalkeeper',
+  CB: 'Center back',
+  FB: 'Wing back',
+  DM: 'Defensive Midfielder',
+  CM: 'Central Midfielder',
+  FW: 'Striker',
+  winger: 'Winger',
 };
 
 export const events: CustomObject<string> = {
