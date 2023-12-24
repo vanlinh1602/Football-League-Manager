@@ -15,11 +15,11 @@ export const linearGradientColor = [
 export const playerRoles: CustomObject<string> = {
   GK: 'Goalkeeper',
   CB: 'Center back',
-  FB: 'Wing back',
-  DM: 'Defensive Midfielder',
+  WB: 'Wing back',
+  CDM: 'Defensive Midfielder',
   CM: 'Central Midfielder',
-  FW: 'Striker',
-  winger: 'Winger',
+  ST: 'Striker',
+  W: 'Winger',
 };
 
 export const events: CustomObject<string> = {
