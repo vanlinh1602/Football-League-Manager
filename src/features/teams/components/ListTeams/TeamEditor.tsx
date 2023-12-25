@@ -1,8 +1,9 @@
-import { Button, Col, Form, Input, Modal, Row, Select, Upload } from 'antd';
+import { Button, Col, DatePicker, Form, Input, Modal, Row, Select, Upload } from 'antd';
 import type { RcFile } from 'antd/lib/upload';
 import { selectPlayersOfTeams } from 'features/players/store/selectors';
 import { useTeamSlide } from 'features/teams/store';
 import type { Team } from 'features/teams/types';
+import { countryOptions } from 'lib/options';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from 'types';
@@ -38,6 +39,10 @@ export const TeamEditor = ({ info, onClose }: Props) => {
       if (!image) {
         Modal.warn({ title: 'Thiếu thông tin', content: 'Vui lòng chọn logo' });
         return;
+      }
+
+      if (formData.founding) {
+        formData.founding = formData.founding.valueOf();
       }
       const dataUpdate: Team = {
         ...info,
@@ -110,6 +115,12 @@ export const TeamEditor = ({ info, onClose }: Props) => {
             <Form.Item name="coach" label="Huấn luyện viên" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
+            <Form.Item name="founding" label="Ngày thành lập" rules={[{ required: true }]}>
+              <DatePicker style={{ width: '100%' }} format="D/M/Y" />
+            </Form.Item>
+            <Form.Item name="country" label="Quốc gia" rules={[{ required: true }]}>
+              <Select options={countryOptions} />
+            </Form.Item>
             <Form.Item name="captain" label="Đội trưởng">
               <Select
                 options={Object.values(teamMembers ?? {}).map(({ name, id }) => ({
@@ -117,6 +128,9 @@ export const TeamEditor = ({ info, onClose }: Props) => {
                   label: name,
                 }))}
               />
+            </Form.Item>
+            <Form.Item name="description" label="Mô tả" rules={[{ required: true }]}>
+              <Input.TextArea />
             </Form.Item>
           </Form>
         </Col>

@@ -72,6 +72,9 @@ const MatchEditor = ({ info, onClose }: Props) => {
         <Form.Item name="round" label="Lượt đấu" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
+        <Form.Item name="place" label="Địa điểm" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
         <Form.Item name="date" label="Ngày thi đấu" rules={[{ required: true }]}>
           <DatePicker
             style={{ width: '100%' }}

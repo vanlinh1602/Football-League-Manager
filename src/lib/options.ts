@@ -1,3 +1,5 @@
+import countryJson from './countries.json';
+
 export const FONTS = ['Mynerve', 'Bangers', 'Fruktur', 'Gluten', 'Roboto', 'SedgwickAveDisplay'];
 
 export const linearGradientColor = [
@@ -31,3 +33,5 @@ export const events: CustomObject<string> = {
   redCard: 'Red Card',
   yellowCard: 'Yellow Card',
 };
+
+export const countryOptions = countryJson.map(({ name, code }) => ({ label: name, value: code }));

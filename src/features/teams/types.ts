@@ -10,4 +10,7 @@ export type Team = {
   logo: string;
   coach: string;
   captain: string;
+  description: string;
+  country: string;
+  founding: number;
 };

@@ -1,8 +1,19 @@
-import { Button, Col, DatePicker, Form, Input, Modal, Row, Select, Upload } from 'antd';
+import {
+  Button,
+  Col,
+  DatePicker,
+  Form,
+  Input,
+  InputNumber,
+  Modal,
+  Row,
+  Select,
+  Upload,
+} from 'antd';
 import type { RcFile } from 'antd/lib/upload';
 import { usePlayerSlide } from 'features/players/store';
 import type { Player } from 'features/players/types';
-import { playerRoles } from 'lib/options';
+import { countryOptions, playerRoles } from 'lib/options';
 import moment from 'moment';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -91,6 +102,12 @@ const PlayerEditor = ({ info, onClose }: Props) => {
             </Form.Item>
             <Form.Item name="birthday" label="Ngày sinh">
               <DatePicker style={{ width: '100%' }} format="D/M/Y" />
+            </Form.Item>
+            <Form.Item name="country" label="Quốc gia" rules={[{ required: true }]}>
+              <Select options={countryOptions} />
+            </Form.Item>
+            <Form.Item name="number" label="Số áo" rules={[{ required: true }]}>
+              <InputNumber controls={false} />
             </Form.Item>
             <Form.Item name="role" label="Vai trò" rules={[{ required: true }]}>
               <Select

@@ -21,6 +21,7 @@ export type Match = {
     teamB?: number;
   };
   league: string;
+  place: string;
 };
 
 export type Event = {
