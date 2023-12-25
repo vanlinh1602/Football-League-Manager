@@ -1,37 +1,39 @@
 {
   "files": {
     "main.css": "/Football-League-Manager/static/css/main.ca8e8fdc.css",
-    "main.js": "/Football-League-Manager/static/js/main.516ee8d3.js",
+    "main.js": "/Football-League-Manager/static/js/main.0160a23d.js",
     "static/js/947.ee4182d1.chunk.js": "/Football-League-Manager/static/js/947.ee4182d1.chunk.js",
-    "static/js/388.e8df87af.chunk.js": "/Football-League-Manager/static/js/388.e8df87af.chunk.js",
+    "static/js/388.3ad19129.chunk.js": "/Football-League-Manager/static/js/388.3ad19129.chunk.js",
     "static/js/441.767b544c.chunk.js": "/Football-League-Manager/static/js/441.767b544c.chunk.js",
-    "static/js/728.af6a6dea.chunk.js": "/Football-League-Manager/static/js/728.af6a6dea.chunk.js",
-    "static/js/910.dd9b60b4.chunk.js": "/Football-League-Manager/static/js/910.dd9b60b4.chunk.js",
-    "static/js/442.7b8a8efd.chunk.js": "/Football-League-Manager/static/js/442.7b8a8efd.chunk.js",
+    "static/js/728.9a4d7ea6.chunk.js": "/Football-League-Manager/static/js/728.9a4d7ea6.chunk.js",
+    "static/js/910.75e69023.chunk.js": "/Football-League-Manager/static/js/910.75e69023.chunk.js",
+    "static/js/856.41ac7bd4.chunk.js": "/Football-League-Manager/static/js/856.41ac7bd4.chunk.js",
     "static/js/126.4aebf786.chunk.js": "/Football-League-Manager/static/js/126.4aebf786.chunk.js",
     "static/js/29.113e0d75.chunk.js": "/Football-League-Manager/static/js/29.113e0d75.chunk.js",
+    "static/js/640.cf74312d.chunk.js": "/Football-League-Manager/static/js/640.cf74312d.chunk.js",
     "static/js/614.ef951d78.chunk.js": "/Football-League-Manager/static/js/614.ef951d78.chunk.js",
     "static/js/60.c0a02576.chunk.js": "/Football-League-Manager/static/js/60.c0a02576.chunk.js",
-    "static/js/640.cf74312d.chunk.js": "/Football-League-Manager/static/js/640.cf74312d.chunk.js",
     "static/js/105.17911bff.chunk.js": "/Football-League-Manager/static/js/105.17911bff.chunk.js",
+    "static/js/433.a34a02b6.chunk.js": "/Football-League-Manager/static/js/433.a34a02b6.chunk.js",
     "index.html": "/Football-League-Manager/index.html",
     "main.ca8e8fdc.css.map": "/Football-League-Manager/static/css/main.ca8e8fdc.css.map",
-    "main.516ee8d3.js.map": "/Football-League-Manager/static/js/main.516ee8d3.js.map",
+    "main.0160a23d.js.map": "/Football-League-Manager/static/js/main.0160a23d.js.map",
     "947.ee4182d1.chunk.js.map": "/Football-League-Manager/static/js/947.ee4182d1.chunk.js.map",
-    "388.e8df87af.chunk.js.map": "/Football-League-Manager/static/js/388.e8df87af.chunk.js.map",
+    "388.3ad19129.chunk.js.map": "/Football-League-Manager/static/js/388.3ad19129.chunk.js.map",
     "441.767b544c.chunk.js.map": "/Football-League-Manager/static/js/441.767b544c.chunk.js.map",
-    "728.af6a6dea.chunk.js.map": "/Football-League-Manager/static/js/728.af6a6dea.chunk.js.map",
-    "910.dd9b60b4.chunk.js.map": "/Football-League-Manager/static/js/910.dd9b60b4.chunk.js.map",
-    "442.7b8a8efd.chunk.js.map": "/Football-League-Manager/static/js/442.7b8a8efd.chunk.js.map",
+    "728.9a4d7ea6.chunk.js.map": "/Football-League-Manager/static/js/728.9a4d7ea6.chunk.js.map",
+    "910.75e69023.chunk.js.map": "/Football-League-Manager/static/js/910.75e69023.chunk.js.map",
+    "856.41ac7bd4.chunk.js.map": "/Football-League-Manager/static/js/856.41ac7bd4.chunk.js.map",
     "126.4aebf786.chunk.js.map": "/Football-League-Manager/static/js/126.4aebf786.chunk.js.map",
     "29.113e0d75.chunk.js.map": "/Football-League-Manager/static/js/29.113e0d75.chunk.js.map",
+    "640.cf74312d.chunk.js.map": "/Football-League-Manager/static/js/640.cf74312d.chunk.js.map",
     "614.ef951d78.chunk.js.map": "/Football-League-Manager/static/js/614.ef951d78.chunk.js.map",
     "60.c0a02576.chunk.js.map": "/Football-League-Manager/static/js/60.c0a02576.chunk.js.map",
-    "640.cf74312d.chunk.js.map": "/Football-League-Manager/static/js/640.cf74312d.chunk.js.map",
-    "105.17911bff.chunk.js.map": "/Football-League-Manager/static/js/105.17911bff.chunk.js.map"
+    "105.17911bff.chunk.js.map": "/Football-League-Manager/static/js/105.17911bff.chunk.js.map",
+    "433.a34a02b6.chunk.js.map": "/Football-League-Manager/static/js/433.a34a02b6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ca8e8fdc.css",
-    "static/js/main.516ee8d3.js"
+    "static/js/main.0160a23d.js"
   ]
 }
