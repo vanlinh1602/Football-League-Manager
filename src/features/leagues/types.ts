@@ -9,5 +9,6 @@ export type League = {
   image: string;
   start: number;
   end: number;
+  description: string;
   participants: string[];
 };

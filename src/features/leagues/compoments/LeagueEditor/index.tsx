@@ -225,6 +225,9 @@ const LeagueEditor = ({ info, onClose }: Props) => {
             <Form.Item name="end" label="Ngày kết thúc" rules={[{ required: true }]}>
               <DatePicker style={{ width: '100%' }} format="D/M/Y" />
             </Form.Item>
+            <Form.Item name="description" label="Mô tả" rules={[{ required: true }]}>
+              <Input.TextArea />
+            </Form.Item>
           </Col>
         </Row>
       </Form>
