@@ -4,6 +4,7 @@ import { selectPlayersOfTeams } from 'features/players/store/selectors';
 import { useTeamSlide } from 'features/teams/store';
 import type { Team } from 'features/teams/types';
 import { countryOptions } from 'lib/options';
+import moment from 'moment';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from 'types';
@@ -108,7 +109,11 @@ export const TeamEditor = ({ info, onClose }: Props) => {
           </Upload>
         </Col>
         <Col span={18}>
-          <Form form={form} layout="vertical" initialValues={info ?? {}}>
+          <Form
+            form={form}
+            layout="vertical"
+            initialValues={{ ...info, founding: info.founding ? moment(info.founding) : '' } ?? {}}
+          >
             <Form.Item name="name" label="Tên đội bóng" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
