@@ -1,15 +1,17 @@
 import { Card, Col, Layout, Row, Typography } from 'antd';
-import { Header } from 'components';
+import { Header, Waiting } from 'components';
+import { selectTeamHandling } from 'features/teams/store/selectors';
 import _ from 'lodash';
 import { FaPersonRunning } from 'react-icons/fa6';
 import { FiUsers } from 'react-icons/fi';
 import { GiChampions } from 'react-icons/gi';
 import { PiSoccerBallFill } from 'react-icons/pi';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
-
+  const teamHandling = useSelector(selectTeamHandling);
   const renderCard = (name: string, icon: any, right: boolean = false) => (
     <Col
       style={{
@@ -44,6 +46,7 @@ const Home = () => {
 
   return (
     <div>
+      {teamHandling ? <Waiting /> : null}
       <Header
         content={
           <div>
