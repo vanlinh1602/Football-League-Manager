@@ -6,3 +6,4 @@ import { initialState } from './reducer';
 const selectDomain = (state: RootState) => state?.userStore || initialState;
 
 export const selectUserHandling = createSelector([selectDomain], (state) => state.handling);
+export const selectUserId = createSelector([selectDomain], (state) => state.id);

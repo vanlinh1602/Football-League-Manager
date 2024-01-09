@@ -3,8 +3,11 @@ import AuthorizedRoute from 'AuthorizedRoute';
 import Waiting from 'components/Waiting';
 import Sider from 'features/Sider';
 import { useTeamSlide } from 'features/teams/store';
+import { useUserSlice } from 'features/user/store';
+import { selectUserId } from 'features/user/store/selectors';
+import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import React, { lazy, Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('pages/Home'));
@@ -13,13 +16,25 @@ const LeaguesPage = lazy(() => import('pages/Leagues'));
 const PlayersPage = lazy(() => import('pages/Players'));
 const MatchesPage = lazy(() => import('pages/Matchs'));
 const EventsPage = lazy(() => import('pages/Events'));
+const LoginPage = lazy(() => import('pages/Login'));
 function App() {
   const dispatch = useDispatch();
   const { actions } = useTeamSlide();
-
+  const { actions: userActions } = useUserSlice();
+  const useId = useSelector(selectUserId);
   useEffect(() => {
     dispatch(actions.getTeams());
   }, [dispatch, actions]);
+
+  useEffect(
+    () =>
+      onAuthStateChanged(getAuth(), (user: User) => {
+        if (user) {
+          dispatch(userActions.signIn(user));
+        }
+      }),
+    [userActions, dispatch]
+  );
 
   return (
     <BrowserRouter
@@ -27,13 +42,14 @@ function App() {
     >
       <Suspense fallback={<Waiting />}>
         <Layout>
-          <Sider />
+          {useId ? <Sider /> : null}
           <Layout>
             <Layout.Content>
               <Routes>
                 <Route path="/" element={<AuthorizedRoute />}>
                   <Route path="" element={<HomePage />} />
                 </Route>
+                <Route path="/login" element={<LoginPage />} />
                 <Route path="/leagues" element={<AuthorizedRoute />}>
                   <Route path="" element={<LeaguesPage />} />
                 </Route>

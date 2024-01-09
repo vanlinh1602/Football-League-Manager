@@ -1,17 +1,24 @@
-import { Card, Col, Layout, Row, Typography } from 'antd';
+import { Button, Card, Col, Layout, Row, Typography } from 'antd';
 import { Header, Waiting } from 'components';
 import { selectTeamHandling } from 'features/teams/store/selectors';
+import { useUserSlice } from 'features/user/store';
+import { selectUserHandling } from 'features/user/store/selectors';
+import { getAuth, signOut } from 'firebase/auth';
 import _ from 'lodash';
 import { FaPersonRunning } from 'react-icons/fa6';
-import { FiUsers } from 'react-icons/fi';
+import { FiLogOut, FiUsers } from 'react-icons/fi';
 import { GiChampions } from 'react-icons/gi';
 import { PiSoccerBallFill } from 'react-icons/pi';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
   const teamHandling = useSelector(selectTeamHandling);
+  const userHandling = useSelector(selectUserHandling);
+
+  const { actions } = useUserSlice();
+  const dispatch = useDispatch();
   const renderCard = (name: string, icon: any, right: boolean = false) => (
     <Col
       style={{
@@ -46,12 +53,23 @@ const Home = () => {
 
   return (
     <div>
-      {teamHandling ? <Waiting /> : null}
+      {teamHandling || userHandling ? <Waiting /> : null}
       <Header
         content={
           <div>
             <Row justify="center">
               <Typography.Title level={4}>FootBall League Manager</Typography.Title>
+              <Button
+                type="primary"
+                style={{ float: 'right', position: 'absolute', right: 20, borderRadius: 24 }}
+                onClick={async () => {
+                  await signOut(getAuth());
+                  dispatch(actions.signOut());
+                }}
+                icon={<FiLogOut />}
+              >
+                Sign Out
+              </Button>
             </Row>
           </div>
         }

@@ -1,4 +1,5 @@
 export type UserState = {
   handling: boolean;
-  data?: {};
+  email: string;
+  id: string;
 };
