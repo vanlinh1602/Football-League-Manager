@@ -1,8 +1,11 @@
-import { Button, Col, DatePicker, Form, Input, Modal, Row, Select, Upload } from 'antd';
+import { Button, Checkbox, Col, DatePicker, Form, Input, Modal, Row, Select, Upload } from 'antd';
 import type { RcFile } from 'antd/lib/upload';
 import { useTeamSlide } from 'features/teams/store';
 import type { Team } from 'features/teams/types';
 import { countryOptions } from 'lib/options';
+import { ActiveTeam } from 'Modals/Team/State/ActiveTeam';
+import { InactiveTeam } from 'Modals/Team/State/InactiveTeam';
+import { ClassTeam } from 'Modals/Team/Team';
 import moment from 'moment';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,7 +13,7 @@ import { generateID } from 'utils/commons';
 import { getBase64 } from 'utils/image';
 
 type Props = {
-  info: Partial<Team>;
+  info: Team;
   onClose: () => void;
 };
 
@@ -28,6 +31,7 @@ export const TeamEditor = ({ info, onClose }: Props) => {
       setBackground(base64);
     }
   };
+  const team = new ClassTeam(info.active ? new ActiveTeam() : new InactiveTeam(), info);
 
   const handleSave = async () => {
     try {
@@ -36,7 +40,6 @@ export const TeamEditor = ({ info, onClose }: Props) => {
         Modal.warn({ title: 'Thiếu thông tin', content: 'Vui lòng chọn logo' });
         return;
       }
-
       if (formData.founding) {
         formData.founding = formData.founding.valueOf();
       }
@@ -46,12 +49,13 @@ export const TeamEditor = ({ info, onClose }: Props) => {
         logo: image!,
         background,
       };
-
       if (!dataUpdate.id) {
         dataUpdate.id = generateID();
       }
 
-      dispatch(actions.updateTeam(dataUpdate));
+      await team.updateTeamInfo(dataUpdate);
+
+      dispatch(actions.fetchTeam({ [dataUpdate.id]: dataUpdate }));
       onClose();
     } catch {}
   };
@@ -112,9 +116,26 @@ export const TeamEditor = ({ info, onClose }: Props) => {
             <Form.Item name="name" label="Tên đội bóng" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
-            <Form.Item name="coach" label="Huấn luyện viên" rules={[{ required: true }]}>
-              <Input />
-            </Form.Item>
+            <Row gutter={24}>
+              <Col span={12}>
+                <Form.Item name="coach" label="Huấn luyện viên" rules={[{ required: true }]}>
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item name="active" label="Đội hoạt động" valuePropName="checked">
+                  <Checkbox
+                    onChange={({ target }) => {
+                      if (target.checked) {
+                        team.changeActiveTeam(new ActiveTeam());
+                      } else {
+                        team.changeActiveTeam(new InactiveTeam());
+                      }
+                    }}
+                  />
+                </Form.Item>
+              </Col>
+            </Row>
             <Form.Item name="founding" label="Ngày thành lập" rules={[{ required: true }]}>
               <DatePicker style={{ width: '100%' }} format="D/M/Y" />
             </Form.Item>

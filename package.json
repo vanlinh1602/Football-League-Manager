@@ -1,6 +1,5 @@
 {
   "name": "football-league-manager",
-  "homepage": "https://vanlinh1602.github.io/Football-League-Manager/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

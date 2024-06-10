@@ -1,11 +1,12 @@
 import { Layout } from 'antd';
 import AuthorizedRoute from 'AuthorizedRoute';
 import Waiting from 'components/Waiting';
+import { useLeagueSlide } from 'features/leagues/store';
 import Sider from 'features/Sider';
 import { useTeamSlide } from 'features/teams/store';
 import { useUserSlice } from 'features/user/store';
 import { selectUserId } from 'features/user/store/selectors';
-import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -21,14 +22,18 @@ function App() {
   const dispatch = useDispatch();
   const { actions } = useTeamSlide();
   const { actions: userActions } = useUserSlice();
+
+  const { actions: leagueActions } = useLeagueSlide();
   const useId = useSelector(selectUserId);
+
   useEffect(() => {
     dispatch(actions.getTeams());
-  }, [dispatch, actions]);
+    dispatch(leagueActions.getLeagues());
+  }, [dispatch, actions, leagueActions]);
 
   useEffect(
     () =>
-      onAuthStateChanged(getAuth(), (user: User) => {
+      onAuthStateChanged(getAuth(), (user) => {
         if (user) {
           dispatch(userActions.signIn(user));
         }

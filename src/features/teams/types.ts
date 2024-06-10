@@ -13,4 +13,5 @@ export type Team = {
   description: string;
   country: string;
   founding: number;
+  active?: boolean;
 };

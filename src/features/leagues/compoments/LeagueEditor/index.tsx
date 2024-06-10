@@ -20,6 +20,9 @@ import type { League } from 'features/leagues/types';
 import { selectTeamData } from 'features/teams/store/selectors';
 import type { Team } from 'features/teams/types';
 import _ from 'lodash';
+import { ActiveTeam } from 'Modals/Team/State/ActiveTeam';
+import { InactiveTeam } from 'Modals/Team/State/InactiveTeam';
+import { ClassTeam } from 'Modals/Team/Team';
 import moment from 'moment';
 import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -45,6 +48,7 @@ type ModalProp = {
 
 const ModalSelect = ({ teamOptions, onCancel, onConfirm }: ModalProp) => {
   const [form] = Form.useForm<{ id: string }>();
+  const teams = useSelector(selectTeamData);
   return (
     <Modal
       title="Chọn đội bóng"
@@ -57,7 +61,13 @@ const ModalSelect = ({ teamOptions, onCancel, onConfirm }: ModalProp) => {
           onClick={async () => {
             try {
               const { id } = await form.validateFields();
-              onConfirm(id);
+              const classTeam = new ClassTeam(
+                teams![id]?.active ? new ActiveTeam() : new InactiveTeam(),
+                teams![id]
+              );
+              if (classTeam.signLeague()) {
+                onConfirm(id);
+              }
               onCancel();
             } catch (error) {}
           }}

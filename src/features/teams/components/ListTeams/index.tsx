@@ -17,7 +17,7 @@ const ListTeams = () => {
 
   const teamsData = useSelector(selectTeamData);
   const handling = useSelector(selectTeamHandling);
-  const [edit, setEdit] = useState<Partial<Team>>();
+  const [edit, setEdit] = useState<Team>();
 
   useEffect(() => {
     if (!teamsData) {
@@ -81,7 +81,7 @@ const ListTeams = () => {
       {edit ? <TeamEditor info={edit} onClose={() => setEdit(undefined)} /> : null}
       <Row justify="end" gutter={[5, 5]}>
         <Col>
-          <Button style={{ margin: '10px 10px' }} type="primary" onClick={() => setEdit({})}>
+          <Button style={{ margin: '10px 10px' }} type="primary" onClick={() => setEdit(undefined)}>
             Thêm đội bóng
           </Button>
         </Col>
